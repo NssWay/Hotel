@@ -4,6 +4,13 @@ def open_booking_page():
     root.withdraw()
     booking_window = tk.Toplevel()
     booking_window.title("Бронирования")
+    booking_window.geometry("800x600")
+
+    screen_width = booking_window.winfo_screenwidth()
+    screen_height = booking_window.winfo_screenheight()
+    position_top = int(screen_height / 2 - 600 / 2)
+    position_right = int(screen_width / 2 - 800 / 2)
+    booking_window.geometry(f'800x600+{position_right}+{position_top}')
 
     header = tk.Label(booking_window, text="Бронирования", font=("Arial", 24))
     header.pack(pady=20)
@@ -44,10 +51,19 @@ def open_booking_page():
     back_to_main_btn = tk.Button(booking_window, text="Вернуться на главную", width=25, command=lambda: [booking_window.destroy(), root.deiconify()])
     back_to_main_btn.pack(pady=10)
 
+    back_to_main_btn.pack(side=tk.BOTTOM, pady=20)
+
 def open_room_page():
     root.withdraw()
     room_window = tk.Toplevel()
     room_window.title("Номера")
+    room_window.geometry("800x600")
+
+    screen_width = room_window.winfo_screenwidth()
+    screen_height = room_window.winfo_screenheight()
+    position_top = int(screen_height / 2 - 600 / 2)
+    position_right = int(screen_width / 2 - 800 / 2)
+    room_window.geometry(f'800x600+{position_right}+{position_top}')
 
     header = tk.Label(room_window, text="Номера", font=("Arial", 24))
     header.pack(pady=20)
@@ -70,10 +86,19 @@ def open_room_page():
     back_to_main_btn = tk.Button(room_window, text="Вернуться на главную", width=25, command=lambda: [room_window.destroy(), root.deiconify()])
     back_to_main_btn.pack(pady=10)
 
+    back_to_main_btn.pack(side=tk.BOTTOM, pady=20)
+
 def open_guest_page():
     root.withdraw()
     guest_window = tk.Toplevel()
     guest_window.title("Гости")
+    guest_window.geometry("800x600")
+
+    screen_width = guest_window.winfo_screenwidth()
+    screen_height = guest_window.winfo_screenheight()
+    position_top = int(screen_height / 2 - 600 / 2)
+    position_right = int(screen_width / 2 - 800 / 2)
+    guest_window.geometry(f'800x600+{position_right}+{position_top}')
 
     header = tk.Label(guest_window, text="Гости", font=("Arial", 24))
     header.pack(pady=20)
@@ -96,10 +121,23 @@ def open_guest_page():
     back_to_main_btn = tk.Button(guest_window, text="Вернуться на главную", width=25, command=lambda: [guest_window.destroy(), root.deiconify()])
     back_to_main_btn.pack(pady=10)
 
+    back_to_main_btn.pack(side=tk.BOTTOM, pady=20)
+
 def main_page():
     global root
     root = tk.Tk()
     root.title("Информационная система для гостиницы")
+
+    window_width = 800
+    window_height = 600
+
+    screen_width = root.winfo_screenwidth()
+    screen_height = root.winfo_screenheight()
+
+    position_top = int(screen_height / 2 - window_height / 2)
+    position_right = int(screen_width / 2 - window_width / 2)
+
+    root.geometry(f'{window_width}x{window_height}+{position_right}+{position_top}')
 
     header = tk.Label(root, text="Главная страница", font=("Arial", 24))
     header.pack(pady=20)
@@ -136,8 +174,10 @@ def main_page():
 
     exit_btn = tk.Button(root, text="Выход", width=20, command=root.quit)
     exit_btn.pack(pady=5)
+    exit_btn.pack(side=tk.BOTTOM, pady=20)
 
     root.mainloop()
 
 if __name__ == "__main__":
     main_page()
+
